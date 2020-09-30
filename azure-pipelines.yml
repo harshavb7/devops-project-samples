@@ -2,7 +2,16 @@
 # Build and test ASP.NET projects.
 # Add steps that publish symbols, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
-
+# this is being defined in app-ci pipeline
+resources:
+  pipelines:
+  - pipeline: javalib   # Name of the pipeline resource
+    source: harshavb7.pipelines-javascript # Name of the pipeline referenced by the pipeline resource
+    trigger: 
+      branches:
+      - releases/*
+      - master
+      
 trigger:
 - master
 
